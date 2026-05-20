@@ -276,8 +276,9 @@ export default function Draw() {
 
   const isAdmin = localStorage.getItem(ADMIN_AUTH_KEY) === '1'
 
-  // Auto-start the draw at 16:00 SAST on 22 May 2026 (admin only — requires Firestore to sync across all users)
-  const DRAW_AUTO_START_TIME = new Date('2026-05-22T16:00:00+02:00').getTime()
+  // Auto-start the draw at 15:53 SAST on 20 May 2026 for testing (admin only — requires Firestore to sync across all users)
+  // TODO: Change back to 2026-05-22T16:00:00+02:00 before Friday
+  const DRAW_AUTO_START_TIME = new Date('2026-05-20T15:53:00+02:00').getTime()
   useEffect(() => {
     if (!isAdmin || drawState.isStarted) return
     const check = () => {
