@@ -108,7 +108,8 @@ export default function Rules() {
             <span className="text-2xl" aria-hidden="true">💰</span>
             <h2 className="text-xl sm:text-2xl font-black text-white">5) Prize Pool</h2>
           </div>
-          <p className="text-sm sm:text-base text-gray-300 mb-4">Total prize pool: <strong>R{PRIZE_POOL.total.toLocaleString()}</strong></p>
+          <p className="text-sm sm:text-base text-gray-300 mb-1">Total prize pool: <strong>R{PRIZE_POOL.total.toLocaleString()}</strong></p>
+          <p className="text-xs text-gray-400 mb-4">R{PRIZE_POOL.buyIn} buy-in per player + R{PRIZE_POOL.companyContribution.toLocaleString()} company contribution</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PRIZE_POOL.prizes.map((prize) => (
               <div

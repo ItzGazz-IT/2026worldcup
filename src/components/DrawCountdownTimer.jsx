@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-const DRAW_TARGET = new Date('2026-05-22T17:00:00+02:00')
+const DRAW_TARGET = new Date('2026-05-22T16:00:00+02:00')
 
 function calcTimeLeft() {
   const diff = DRAW_TARGET - Date.now()
@@ -53,7 +53,7 @@ export default function DrawCountdownTimer({ compact = false }) {
     <div>
       <div className="text-center mb-3">
         <p className="text-xs uppercase tracking-widest text-gray-400">Live Team Draw</p>
-        <p className="text-sm sm:text-base font-semibold text-gray-300">Countdown to Friday 22 May, 17:00 SAST</p>
+        <p className="text-sm sm:text-base font-semibold text-gray-300">Countdown to Friday 22 May, 16:00 SAST</p>
       </div>
 
       {timeLeft ? (
@@ -66,9 +66,8 @@ export default function DrawCountdownTimer({ compact = false }) {
           <span className="text-2xl sm:text-3xl font-bold text-gray-500 mt-1.5">:</span>
           <Digit value={timeLeft.seconds} label="Seconds" />
         </div>
-      ) : (
-        <p className="text-center text-lg font-black neon-text">The live draw has started.</p>
-      )}
+      ) : null
+      }
     </div>
   )
 }

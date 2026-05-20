@@ -11,9 +11,9 @@ import DrawCountdownTimer from '../components/DrawCountdownTimer'
 import { getDrawProgress } from '../utils/drawLogic'
 
 const ADMIN_AUTH_KEY = 'wc2026_admin_authed'
-const SPIN_SECS  = 7   // suspense seconds before the team is revealed
-const REVEAL_SECS = 3  // seconds the reveal card is shown
-const TOTAL_SECS  = SPIN_SECS + REVEAL_SECS // 10 seconds per team
+const SPIN_SECS  = 3   // suspense seconds before the team is revealed
+const REVEAL_SECS = 2  // seconds the reveal card is shown
+const TOTAL_SECS  = SPIN_SECS + REVEAL_SECS // 5 seconds per team
 
 // ── Sound stub ────────────────────────────────────────────────────────────────
 function playDrawSound() {}
@@ -58,7 +58,7 @@ function DrawLightbox({ open, player, revealedTeams, currentTeam, phase, teamInd
 
   if (!open || !player) return null
 
-  const spinSpeed = countdown > 4 ? 80 : countdown > 2 ? 220 : countdown > 0 ? 520 : 1200
+  const spinSpeed = countdown > 2 ? 80 : countdown > 1 ? 220 : countdown > 0 ? 520 : 1200
   const potColor  = currentTeam ? POT_CONFIG[currentTeam.pot].color : player.color
 
   return createPortal(
@@ -275,6 +275,19 @@ export default function Draw() {
   const [lightboxTotalTeams,   setLightboxTotalTeams]   = useState(0)
 
   const isAdmin = localStorage.getItem(ADMIN_AUTH_KEY) === '1'
+
+  // Auto-start the draw at 16:00 SAST on 22 May 2026 (admin only — requires Firestore to sync across all users)
+  const DRAW_AUTO_START_TIME = new Date('2026-05-22T16:00:00+02:00').getTime()
+  useEffect(() => {
+    if (!isAdmin || drawState.isStarted) return
+    const check = () => {
+      if (Date.now() >= DRAW_AUTO_START_TIME && !drawState.isStarted) startDraw()
+    }
+    check()
+    const id = setInterval(check, 5000)
+    return () => clearInterval(id)
+  }, [isAdmin, drawState.isStarted, startDraw, DRAW_AUTO_START_TIME])
+
   const progress = getDrawProgress(drawState.drawIndex, TEAMS.length)
 
   const baseTeamsPerPlayer = Math.floor(TEAMS.length / PLAYERS.length)

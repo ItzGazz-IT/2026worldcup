@@ -101,10 +101,13 @@ export default function Home() {
 
         {/* ── Prize Pool ──────────────────────────────────────────────────── */}
         <motion.section variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <motion.h2 variants={fadeUp} className="text-2xl font-black text-center mb-8">
+          <motion.h2 variants={fadeUp} className="text-2xl font-black text-center mb-2">
             💰 <span className="gradient-text">Prize Pool</span>
             <span className="ml-2 text-lg text-gray-400">— R{PRIZE_POOL.total.toLocaleString()}</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-center text-sm text-gray-500 mb-8">
+            R{PRIZE_POOL.buyIn} buy-in per player · R{PRIZE_POOL.companyContribution.toLocaleString()} company contribution
+          </motion.p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {PRIZE_POOL.prizes.map((prize, i) => (

@@ -16,6 +16,8 @@ export const PLAYERS = [
 // Prize pool structure (ZAR)
 export const PRIZE_POOL = {
   total: 2000,
+  buyIn: 100,
+  companyContribution: 1000,
   prizes: [
     { position: 1, label: '1st Place', amount: 1000, icon: '🥇', color: '#ffd700' },
     { position: 2, label: '2nd Place', amount: 500,  icon: '🥈', color: '#c0c0c0' },
