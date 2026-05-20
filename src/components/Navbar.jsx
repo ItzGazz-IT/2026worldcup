@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: '/draw',       label: 'Live Draw',   icon: '🎲' },
   { to: '/leaderboard',label: 'Leaderboard', icon: '🏆' },
   { to: '/fixtures',   label: 'Fixtures & Results', icon: '📅' },
+  { to: '/rules',      label: 'Rules',       icon: '📜' },
   { to: '/teams',      label: 'Teams',       icon: '🌍' },
   { to: '/admin',      label: 'Admin',       icon: '⚙️' },
 ]

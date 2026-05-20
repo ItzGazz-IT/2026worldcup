@@ -7,6 +7,7 @@ import Draw        from './pages/Draw'
 import Leaderboard from './pages/Leaderboard'
 import Teams       from './pages/Teams'
 import Fixtures    from './pages/Fixtures'
+import Rules       from './pages/Rules'
 import Admin       from './pages/Admin'
 
 // HashRouter is used for GitHub Pages compatibility —
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/teams"       element={<Teams />}       />
               <Route path="/fixtures"    element={<Fixtures />}    />
+              <Route path="/rules"       element={<Rules />}       />
               <Route path="/results"     element={<Navigate to="/fixtures" replace />} />
               <Route path="/admin"       element={<Admin />}       />
             </Routes>
