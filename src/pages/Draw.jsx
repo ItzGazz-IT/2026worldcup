@@ -275,20 +275,6 @@ export default function Draw() {
   const [lightboxTotalTeams,   setLightboxTotalTeams]   = useState(0)
 
   const isAdmin = localStorage.getItem(ADMIN_AUTH_KEY) === '1'
-
-  // Auto-start the draw at 15:53 SAST on 20 May 2026 for testing (admin only — requires Firestore to sync across all users)
-  // TODO: Change back to 2026-05-22T16:00:00+02:00 before Friday
-  const DRAW_AUTO_START_TIME = new Date('2026-05-20T15:53:00+02:00').getTime()
-  useEffect(() => {
-    if (!isAdmin || drawState.isStarted) return
-    const check = () => {
-      if (Date.now() >= DRAW_AUTO_START_TIME && !drawState.isStarted) startDraw()
-    }
-    check()
-    const id = setInterval(check, 5000)
-    return () => clearInterval(id)
-  }, [isAdmin, drawState.isStarted, startDraw, DRAW_AUTO_START_TIME])
-
   const progress = getDrawProgress(drawState.drawIndex, TEAMS.length)
 
   const baseTeamsPerPlayer = Math.floor(TEAMS.length / PLAYERS.length)
