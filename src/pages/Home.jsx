@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import CountdownTimer from '../components/CountdownTimer'
 import DrawCountdownTimer from '../components/DrawCountdownTimer'
 import GlassCard from '../components/GlassCard'
@@ -13,97 +13,9 @@ const fadeUp  = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, tr
 
 export default function Home() {
   const { PLAYERS, drawState, getPlayerTeams, eliminated } = useApp()
-  const [showDrawModal, setShowDrawModal] = useState(false)
-
-  useEffect(() => {
-    const dismissed = sessionStorage.getItem('drawModalDismissed')
-    if (!dismissed) {
-      const t = setTimeout(() => setShowDrawModal(true), 900)
-      return () => clearTimeout(t)
-    }
-  }, [])
-
-  const closeDrawModal = () => {
-    setShowDrawModal(false)
-    sessionStorage.setItem('drawModalDismissed', '1')
-  }
 
   return (
     <div className="min-h-screen bg-grid">
-
-      {/* ── Draw Countdown Modal ─────────────────────────────────────────── */}
-      <AnimatePresence>
-        {showDrawModal && (
-          <motion.div
-            key="draw-modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            style={{ background: 'rgba(10,20,40,0.75)', backdropFilter: 'blur(8px)' }}
-            onClick={closeDrawModal}
-          >
-            <motion.div
-              key="draw-modal-card"
-              initial={{ opacity: 0, scale: 0.85, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-              className="relative rounded-3xl p-8 sm:p-10 max-w-md w-full text-center"
-              style={{
-                background: 'linear-gradient(145deg, rgba(255,255,255,0.97), rgba(240,248,255,0.97))',
-                border: '1px solid rgba(46,115,168,0.25)',
-                boxShadow: '0 30px 80px rgba(10,30,60,0.35)',
-              }}
-              onClick={e => e.stopPropagation()}
-            >
-              {/* Close button */}
-              <button
-                onClick={closeDrawModal}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all"
-              >
-                ✕
-              </button>
-
-              <div className="text-5xl mb-3">🎲</div>
-              <h2 className="text-2xl font-black mb-1" style={{ color: '#1e3a5f' }}>
-                Live Team Draw
-              </h2>
-              <p className="text-sm text-gray-500 mb-6">
-                Friday 22 May 2026 · 17:00 SAST
-              </p>
-
-              <div
-                className="rounded-2xl p-5 mb-6"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(46,115,168,0.08), rgba(46,115,168,0.03))',
-                  border: '1px solid rgba(46,115,168,0.2)',
-                }}
-              >
-                <DrawCountdownTimer />
-              </div>
-
-              <div className="flex gap-3 justify-center">
-                <Link
-                  to="/draw"
-                  onClick={closeDrawModal}
-                  className="btn-neon text-sm px-6 py-3"
-                >
-                  🎲 View Live Draw
-                </Link>
-                <button
-                  onClick={closeDrawModal}
-                  className="btn-outline text-sm px-6 py-3"
-                >
-                  Dismiss
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden px-4 pt-16 pb-20 text-center">
@@ -136,8 +48,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="mb-8 cursor-pointer"
-            onClick={() => setShowDrawModal(true)}
+            className="mb-8"
           >
             <div
               className="inline-block rounded-2xl px-6 py-3 text-sm font-semibold"
