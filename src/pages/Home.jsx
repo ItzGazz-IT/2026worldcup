@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import CountdownTimer from '../components/CountdownTimer'
+import DrawCountdownTimer from '../components/DrawCountdownTimer'
 import GlassCard from '../components/GlassCard'
 import { useApp } from '../context/AppContext'
 import { PRIZE_POOL } from '../data/players'
@@ -77,6 +78,10 @@ export default function Home() {
             ⏱ Countdown to Kick-Off — June 11, 2026
           </p>
           <CountdownTimer />
+        </GlassCard>
+
+        <GlassCard className="p-6" delay={0.15}>
+          <DrawCountdownTimer compact />
         </GlassCard>
 
         {/* ── Prize Pool ──────────────────────────────────────────────────── */}

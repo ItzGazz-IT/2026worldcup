@@ -7,6 +7,7 @@ import { useApp } from '../context/AppContext'
 import { POT_CONFIG } from '../data/teams'
 import FlagImage from '../components/FlagImage'
 import GlassCard from '../components/GlassCard'
+import DrawCountdownTimer from '../components/DrawCountdownTimer'
 import { getDrawProgress } from '../utils/drawLogic'
 
 const ADMIN_AUTH_KEY = 'wc2026_admin_authed'
@@ -387,6 +388,10 @@ export default function Draw() {
               : '48 teams • 10 players • Fair random draw'}
           </p>
         </motion.div>
+
+        <GlassCard className="p-5 mb-6" delay={0.05}>
+          <DrawCountdownTimer compact />
+        </GlassCard>
 
         {/* ── Main draw area ─────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">

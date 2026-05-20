@@ -65,9 +65,12 @@ export default function Rules() {
         </motion.header>
 
         <RuleCard icon="🎲" title="1) Team Draw" delay={0.05}>
-          <p>The draw assigns teams to players as fairly as possible across pots.</p>
-          <p>With 48 teams and {PLAYERS.length} players, most players receive 5 teams and the rest receive 4.</p>
-          <p>Once the draw is locked, assignments should not be changed unless the group agrees.</p>
+          <p>The draw is random, but pot-balanced so everyone gets a fair spread of strong and weaker teams.</p>
+          <p><strong>Step 1:</strong> Teams are separated into Pot 1 to Pot 4.</p>
+          <p><strong>Step 2:</strong> Each player gets 1 team from each pot (4 guaranteed teams each).</p>
+          <p><strong>Step 3:</strong> Extra teams are distributed randomly, so with 48 teams and {PLAYERS.length} players, 8 players get 5 teams and 2 players get 4 teams.</p>
+          <p><strong>Step 4:</strong> The live draw reveals assignments one by one until all teams are allocated.</p>
+          <p>Once the draw is locked, assignments should not be changed unless everyone agrees.</p>
         </RuleCard>
 
         <RuleCard icon="⚽" title="2) Match Results & Scoring" delay={0.1}>
