@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#2E73A8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="32" fill="url(#bg)"/>
+  <!-- Soccer ball (white circle) -->
+  <circle cx="32" cy="32" r="20" fill="white"/>
+  <!-- Center pentagon -->
+  <polygon points="32,18 39,24 36.5,33 27.5,33 25,24" fill="#1a1a2e"/>
+  <!-- Bottom-left pentagon -->
+  <polygon points="20,38 27.5,33 27.5,42 21.5,45 17,41" fill="#1a1a2e"/>
+  <!-- Bottom-right pentagon -->
+  <polygon points="44,38 36.5,33 36.5,42 42.5,45 47,41" fill="#1a1a2e"/>
+  <!-- Top-left patch -->
+  <polygon points="17,24 25,24 23,31 16,30" fill="#1a1a2e"/>
+  <!-- Top-right patch -->
+  <polygon points="47,24 39,24 41,31 48,30" fill="#1a1a2e"/>
+  <!-- Ball outline -->
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#2E73A8" stroke-width="1.5"/>
+</svg>
