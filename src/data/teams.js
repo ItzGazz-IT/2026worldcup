@@ -43,7 +43,7 @@ export const TEAMS = [
   { id: 29, name: 'Spain',                flag: '🇪🇸', code: 'es',     pot: 1, confederation: 'UEFA',     group: 'H' },
   { id: 30, name: 'Uruguay',              flag: '🇺🇾', code: 'uy',     pot: 2, confederation: 'CONMEBOL', group: 'H' },
   { id: 31, name: 'Saudi Arabia',         flag: '🇸🇦', code: 'sa',     pot: 3, confederation: 'AFC',      group: 'H' },
-  { id: 32, name: 'Cabo Verde',           flag: '🇨🇻', code: 'cv',     pot: 4, confederation: 'CAF',      group: 'H' },
+  { id: 32, name: 'Cape Verde',           flag: '🇨🇻', code: 'cv',     pot: 4, confederation: 'CAF',      group: 'H' },
   // ── GROUP I ────────────────────────────────────────────────────────────────
   { id: 33, name: 'France',               flag: '🇫🇷', code: 'fr',     pot: 1, confederation: 'UEFA',     group: 'I' },
   { id: 34, name: 'Senegal',              flag: '🇸🇳', code: 'sn',     pot: 2, confederation: 'CAF',      group: 'I' },

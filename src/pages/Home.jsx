@@ -64,7 +64,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/draw" className="btn-neon text-base">
-              🎲 Join the Draw
+              🎲 View the Draw
             </Link>
             <Link to="/leaderboard" className="btn-outline text-base">
               🏆 Leaderboard
@@ -133,7 +133,7 @@ export default function Home() {
             <p className="text-4xl mb-3">🎲</p>
             <p className="text-lg font-bold text-gray-300 mb-2">Draw hasn't started yet</p>
             <p className="text-sm text-gray-500 mb-5">Head to the Live Draw page to begin the sweepstake.</p>
-            <Link to="/draw" className="btn-neon">Start the Draw</Link>
+            <Link to="/draw" className="btn-neon">View the Draw</Link>
           </GlassCard>
         )}
 
